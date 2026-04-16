@@ -67,16 +67,36 @@ margin-bottom:25px;
 max-width:600px;
 }
 
+
 .btn {
-padding:14px 22px;
-border:none;
-border-radius:8px;
-margin:5px;
-cursor:pointer;
-font-size:16px;
+  padding: 14px 22px;
+  border-radius: 8px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-.yellow {background:#f4b400; color:black;}
+.btn.yellow {
+  background: #f4b400;
+  color: black;
+}
+
+.btn.yellow:hover {
+  background: #e0a800;
+}
+
+.btn.green {
+  background: #27ae60;
+  color: white;
+}
+
+.btn.green:hover {
+  background: #219150;
+}.yellow {background:#f4b400; color:black;}
 .green {background:#27ae60; color:white;}
 
 /* SERVICES */
@@ -199,7 +219,7 @@ padding:20px;
 <p>Professional irrigation systems and outdoor lighting solutions serving Alabama.</p>
 <div>
 <a href="tel:2057717007" class="btn yellow">Call Now for Free Quote</a>
-<button class="btn green">Get a Free Estimate</button>
+
 </div>
 </section>
 
@@ -246,7 +266,9 @@ padding:20px;
 <h3>Get In Touch</h3>
 <input type="text" placeholder="Your Name">
 <textarea placeholder="Tell us what you need"></textarea>
-<button class="btn yellow">Text Us Your Problem</button>
+<a href="sms:2057717007" class="btn green">
+  Get a Free Estimate
+</a>
 </div>
 
 <div class="contact-box">
