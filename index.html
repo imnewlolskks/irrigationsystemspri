@@ -127,77 +127,92 @@
 
     /* GENERAL SECTIONS */
     .section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .section h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
-      color: black;
-    }
-
-    .section p {
-      color: #666;
-      margin-bottom: 40px;
-      font-size: 16px;
-    }
-
-    /* SERVICES + GALLERY CARDS */
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      width: 320px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      text-align: left;
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .card-content {
-      padding: 20px;
-    }
-
-    .card-content h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: black;
-    }
-
-    .card-content p {
-      color: #555;
-      margin-bottom: 0;
-      line-height: 1.5;
-    }
-
-    /* ABOUT / WHY CHOOSE US */
-    .why {
-      background: #1e6b4c;
-      color: white;
       padding: 70px 20px;
       text-align: center;
     }
 
+    .section h2 {
+      font-size: 40px;
+      margin-bottom: 12px;
+      color: black;
+    }
+
+    .section-subtitle {
+      color: #666;
+      margin-bottom: 45px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .section-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-card-content {
+      padding: 24px;
+      flex: 1;
+    }
+
+    .service-card-content h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: black;
+    }
+
+    .service-card-content p {
+      color: #555;
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    /* GALLERY */
+    .gallery-note {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    /* ABOUT */
+    .why {
+      background: #1e6b4c;
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
     .about-wrap {
-      max-width: 950px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     .why h2 {
-      font-size: 34px;
+      font-size: 42px;
       margin-bottom: 18px;
       color: white;
     }
@@ -205,8 +220,9 @@
     .about-text {
       color: white;
       font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 18px;
+      line-height: 1.9;
+      margin: 0 auto 18px auto;
+      max-width: 980px;
     }
 
     .about-highlight {
@@ -214,8 +230,8 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 16px;
-      margin-top: 25px;
-      margin-bottom: 28px;
+      margin-top: 28px;
+      margin-bottom: 30px;
     }
 
     .about-pill {
@@ -297,7 +313,7 @@
     }
 
     .contact-title h2 {
-      font-size: 38px;
+      font-size: 42px;
       color: #0f3b2e;
       margin-bottom: 12px;
     }
@@ -466,6 +482,12 @@
     }
 
     /* MOBILE */
+    @media (max-width: 1100px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 950px) {
       .contact-grid {
         grid-template-columns: 1fr;
@@ -499,8 +521,10 @@
         font-size: 16px;
       }
 
-      .contact-title h2 {
-        font-size: 32px;
+      .contact-title h2,
+      .section h2,
+      .why h2 {
+        font-size: 34px;
       }
     }
 
@@ -518,7 +542,11 @@
         font-size: 30px;
       }
 
-      .card,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card,
       .social-btn {
         width: 100%;
         max-width: 360px;
@@ -563,52 +591,46 @@
   </section>
 
   <section id="services" class="section">
-    <h2>Our Services</h2>
-    <p>From installation to maintenance, we deliver top-quality solutions for homes and properties.</p>
+    <div class="section-wrap">
+      <h2>Our Services</h2>
+      <p class="section-subtitle">
+        From installation to maintenance, we deliver top-quality solutions for homes and properties.
+      </p>
 
-    <div class="services">
-      <div class="card">
-        <img src="hero.jpg" alt="Irrigation Systems">
-        <div class="card-content">
-          <h3>Irrigation Systems</h3>
-          <p>Custom sprinkler design, installation, repairs, and maintenance to keep your lawn covered and healthy.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="hero.jpg" alt="Irrigation Systems">
+          <div class="service-card-content">
+            <h3>Irrigation Systems</h3>
+            <p>Custom sprinkler design, installation, repairs, and maintenance to keep your lawn covered and healthy.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="card">
-        <img src="hero.jpg" alt="Outdoor Lighting">
-        <div class="card-content">
-          <h3>Outdoor Lighting</h3>
-          <p>Landscape and outdoor lighting solutions that improve visibility, safety, and curb appeal.</p>
+        <div class="service-card">
+          <img src="hero.jpg" alt="Outdoor Lighting">
+          <div class="service-card-content">
+            <h3>Outdoor Lighting</h3>
+            <p>Landscape and outdoor lighting solutions that improve visibility, safety, and curb appeal.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="card">
-        <img src="hero.jpg" alt="Repairs and Maintenance">
-        <div class="card-content">
-          <h3>Repairs &amp; Maintenance</h3>
-          <p>Fast help for leaks, broken sprinkler heads, valve issues, and system problems that need attention.</p>
+        <div class="service-card">
+          <img src="hero.jpg" alt="Repairs and Maintenance">
+          <div class="service-card-content">
+            <h3>Repairs &amp; Maintenance</h3>
+            <p>Fast help for leaks, broken sprinkler heads, valve issues, and system problems that need attention.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section id="gallery" class="section">
-    <h2>Gallery</h2>
-    <p>Recent irrigation and outdoor service work.</p>
-
-    <div class="services">
-      <div class="card">
-        <img src="hero.jpg" alt="Gallery image 1">
-      </div>
-
-      <div class="card">
-        <img src="hero.jpg" alt="Gallery image 2">
-      </div>
-
-      <div class="card">
-        <img src="hero.jpg" alt="Gallery image 3">
-      </div>
+    <div class="section-wrap">
+      <h2>Gallery</h2>
+      <p class="section-subtitle gallery-note">
+        More project photos coming soon. We’ll keep adding real work so you can see more of our irrigation and lighting results.
+      </p>
     </div>
   </section>
 
@@ -679,31 +701,31 @@
       <h2>Contact Us</h2>
       <p>
         Need a repair, a new system, outdoor lighting help, or a free estimate?
-        Send us your information below and we’ll open a ready-to-send message with your details.
+        Fill out the form below and we’ll prepare a clean text message with your information.
       </p>
     </div>
 
     <div class="contact-grid">
       <div class="contact-box contact-form-box">
         <h3>Get In Touch</h3>
-        <p>Fill this out and tap the button below. Your message will be prepared with your name and what you need.</p>
+        <p>Enter your name and what you need below, then tap the button to open a ready-to-send message.</p>
 
         <label class="field-label" for="customerName">Your Name</label>
         <input type="text" id="customerName" placeholder="Enter your name">
 
         <label class="field-label" for="customerNeed">Tell us what you need</label>
-        <textarea id="customerNeed" placeholder="Example: I need a sprinkler repair, outdoor lighting, or a free estimate."></textarea>
+        <textarea id="customerNeed" placeholder="Example: My sprinkler is not working, I need outdoor lighting, or I want a free estimate."></textarea>
 
         <button class="btn green" onclick="sendEstimateMessage()">Get In Touch</button>
 
         <p class="form-note">
-          This opens your text messages app with a message already written for you.
+          This opens your text messages app with a message already written clearly and professionally.
         </p>
       </div>
 
       <div class="contact-box contact-info-box">
         <h3>More Ways to Reach Us</h3>
-        <p>Use the contact details below to call, text, or visit our social pages.</p>
+        <p>Use the details below to call, text, or visit our social pages.</p>
 
         <div class="contact-list">
           <div class="contact-item">
@@ -756,14 +778,14 @@
       const name = document.getElementById("customerName").value.trim();
       const need = document.getElementById("customerNeed").value.trim();
 
-      let message = "Hi, I’m interested in getting in touch about your services.";
+      let message = "Hi, I’d like to get in touch about your services. Please let me know when you’re available. Thank you.";
 
       if (name && need) {
-        message = `Hi, my name is ${name}. I’m reaching out because I need: ${need}. Please let me know when you’re available. Thank you.`;
+        message = `Hi, my name is ${name}. I’m reaching out because ${need}. Please let me know when you’re available. Thank you.`;
       } else if (name) {
         message = `Hi, my name is ${name}. I’d like to get in touch about your services. Please let me know when you’re available. Thank you.`;
       } else if (need) {
-        message = `Hi, I’m reaching out because I need: ${need}. Please let me know when you’re available. Thank you.`;
+        message = `Hi, I’m reaching out because ${need}. Please let me know when you’re available. Thank you.`;
       }
 
       const smsLink = `sms:2057717007?body=${encodeURIComponent(message)}`;
